@@ -1,27 +1,46 @@
-# 🎮 Ekran Kartı & Oyun Benchmark Simülasyonu
 
-Bu proje, **Java** programlama dili kullanılarak geliştirilmiş bir donanım ve yazılım performans analiz simülasyonudur. Nesne Yönelimli Programlama (OOP) mantığının pekiştirilmesi amacıyla, gerçek hayat senaryoları kod üzerine taşınmıştır.
+🚀 PC Donanım ve Performans Analiz Sistemi (v2.0)
+Bu proje, bilgisayar donanım parçalarını (Ekran Kartı ve İşlemci) analiz eden, parçalar arasındaki uyumluluğu hesaplayan ve popüler oyunların sistem gereksinimlerini sunan kapsamlı bir Java Konsol Uygulamasıdır.
 
-## 🚀 Projenin Amacı
-Kullanıcının kütüphaneden seçtiği bir **Ekran Kartı** ile bir **Bilgisayar Oyununu** karşılaştırarak; donanımın o oyunu hangi ayarlarda ve tahmini kaç FPS ile çalıştıracağını analiz etmektir.
+🌟 v2.0 Yenilikleri & Özellikler
+Bu sürümde proje, statik bir veri tabanından dinamik bir hesaplama aracına dönüştürülmüştür.
 
-## 🛠️ Kullanılan Teknolojiler ve Yapılar
-* **Java (JDK 21):** Ana geliştirme dili.
-* **OOP (Nesne Yönelimli Programlama):**
-    * **Custom Classes:** `EkranKartlariVeriMerkezi` ve `GameBenchmark` sınıfları ile kendi veri tiplerim oluşturuldu.
-    * **Constructor (Yapıcı Metotlar):** Nesne üretimini standartlaştırmak ve veriyi tek satırda işlemek için kullanıldı.
-    * **Object Interaction:** Sınıflar arası veri transferi (Bir sınıfın metoduna parametre olarak başka bir sınıfın nesnesini göndermek) uygulandı.
-* **Veri Yapıları (Collections):** Verilerin hızlı sorgulanması ve depolanması için `HashMap<Key, Value>` yapısı kullanıldı.
-* **Input Handling:** `Scanner` sınıfı ve String manipülasyonları (`strip`, `toUpperCase` vb.) ile güvenli kullanıcı veri girişi sağlandı.
+🧠 1. Akıllı Darboğaz (Bottleneck) Algoritması
+Sistem, seçilen Ekran Kartı (GPU) ve İşlemci (CPU) arasındaki performans dengesini analiz eder.
 
-## ⚙️ Nasıl Çalışır?
-1.  Program başladığında arka planda bir ekran kartı ve oyun veritabanı (HashMap) oluşturulur.
-2.  Kullanıcıdan bir ekran kartı modeli girmesi istenir (Örn: RTX 3060).
-3.  Seçilen kartın özellikleri hafızaya alınır.
-4.  Kullanıcıdan test etmek istediği oyun seçilir (Örn: Cyberpunk 2077).
-5.  Sistem, seçilen kartı (`EkranKartlariVeriMerkezi` nesnesi) oyunun test metoduna (`GameBenchmark`) parametre olarak gönderir.
-6.  Algoritma, kartın performans düzeyi ile oyunun gereksinimlerini kıyaslar ve sonucu ekrana basar.
+Özel bir algoritma ile parçalar arasındaki güç farkını hesaplar.
 
-## 👨‍💻 Geliştirici
-* **Ad:** Süleyman
-* **Bölüm:** Yazılım Mühendisliği 1. Sınıf
+Kullanıcıya % kaç oranında darboğaz olduğunu ve hangi parçanın (CPU veya GPU) sistemi frenlediğini söyler.
+
+Yükseltme tavsiyeleri verir.
+
+📊 2. Toplam Sistem Puanlaması
+Donanımların teknik özellikleri (VRAM, Frekans, Çekirdek Sayısı vb.) baz alınarak sisteme 0 ile 100 arasında bir performans puanı verilir.
+
+💾 3. Genişletilmiş Veri Tabanı (HashMap)
+Ekran Kartları: RTX 20 serisinden RTX 5090'a kadar geniş bir yelpaze.
+
+İşlemciler: Intel Core i3 12. nesilden i9 14. nesile kadar detaylı işlemci verileri.
+
+Oyunlar: Cyberpunk 2077, God of War gibi popüler oyunların detaylı sistem gereksinimleri.
+
+🛡️ 4. Gelişmiş Kullanıcı Deneyimi (UX)
+Hatalı girişleri engelleyen Input Validation (Giriş Doğrulama) döngüleri eklendi. Kullanıcı yanlış model girse bile program çökmez, doğruyu girene kadar yol gösterir.
+
+🛠️ Kullanılan Teknolojiler ve Yapılar
+Dil: Java (JDK 21)
+
+Veri Yapıları: HashMap (Hızlı veri erişimi için), ArrayList
+
+OOP Prensipleri: Sınıflar (Classes), Nesneler (Objects), Constructorlar.
+
+Kontrol Yapıları: While Döngüleri, If-Else Blokları.
+
+🔜 Gelecek Sürüm Hedefleri (Roadmap v3.0)
+Şu anki sürümde oyunların sistem gereksinimleri kütüphane olarak sunulmaktadır. Gelecek güncellemede (v3.0) planlanan özellikler:
+
+🚀 FPS Tahmin Motoru: Mevcut donanımınızın (GPU + CPU), seçilen oyunda ortalama kaç FPS vereceğinin hesaplanması.
+
+🎮 Dinamik Uyumluluk Testi: Sisteminizin seçilen oyunu "Low", "Medium" veya "Ultra" ayarlarda açıp açamayacağının otomatik analizi.
+
+💾 Veri Tabanı Genişletmesi: AMD İşlemciler ve Radeon Ekran Kartlarının eklenmesi.
