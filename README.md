@@ -1,46 +1,52 @@
 
-🚀 PC Donanım ve Performans Analiz Sistemi (v2.0)
-Bu proje, bilgisayar donanım parçalarını (Ekran Kartı ve İşlemci) analiz eden, parçalar arasındaki uyumluluğu hesaplayan ve popüler oyunların sistem gereksinimlerini sunan kapsamlı bir Java Konsol Uygulamasıdır.
+# 🚀 PC Donanım ve Performans Analiz Sistemi (v3.0)
 
-🌟 v2.0 Yenilikleri & Özellikler
-Bu sürümde proje, statik bir veri tabanından dinamik bir hesaplama aracına dönüştürülmüştür.
+Bu proje, bilgisayar donanım parçalarını (Ekran Kartı ve İşlemci) analiz eden, parçalar arasındaki uyumluluğu hesaplayan ve artık oyunların mimarisine göre (CPU veya GPU odaklı) dinamik performans testi yapan kapsamlı bir Java Konsol Uygulamasıdır.
 
-🧠 1. Akıllı Darboğaz (Bottleneck) Algoritması
-Sistem, seçilen Ekran Kartı (GPU) ve İşlemci (CPU) arasındaki performans dengesini analiz eder.
+## 🌟 v3.0 Sürüm Yenilikleri & Özellikler
+Bu sürümle birlikte "Kırmızı Takım" (AMD) sahalara indi ve analiz motoru oyunların karakterine göre puan veren çok daha zeki bir yapıya kavuştu.
 
-Özel bir algoritma ile parçalar arasındaki güç farkını hesaplar.
+### 🔴 1. Tam Kapsamlı AMD Desteği
+Artık sadece Intel ve NVIDIA yok! Veri tabanı devasa ölçüde genişletildi.
+* **İşlemciler:** AMD Ryzen 5, 7 ve 9 serisi (Zen 3, Zen 4 mimarileri).
+* **Ekran Kartları:** AMD Radeon RX 6000 ve 7000 serisi kartlar sisteme entegre edildi.
 
-Kullanıcıya % kaç oranında darboğaz olduğunu ve hangi parçanın (CPU veya GPU) sistemi frenlediğini söyler.
+### ⚖️ 2. Oyun Odaklı Ağırlıklandırma (Game-Specific Weighting)
+Her oyun sistemi aynı şekilde yormaz. Geliştirdiğimiz yeni algoritma şunları yapar:
+* **Analiz:** Seçilen oyunun **CPU Bound** (İşlemci odaklı, örn: CS2, Valorant) mı yoksa **GPU Bound** (Ekran kartı odaklı, örn: Cyberpunk 2077) mı olduğunu tespit eder.
+* **Hesaplama:** Eğer oyun işlemciye yükleniyorsa CPU puanının katsayısını, grafiğe yükleniyorsa GPU puanının katsayısını artırarak "Oyun Özelinde" bir performans puanı üretir.
 
-Yükseltme tavsiyeleri verir.
+### ⚡ 3. Dinamik Benchmark Simülasyonu
+Statik puanların ötesine geçildi. Sistem, seçilen donanım ikilisini sanal bir stres testine sokar:
+* Arka planda senaryo bazlı yük bindirilir.
+* Sistemin darboğaz (bottleneck) durumu ve sıcaklık (simüle edilmiş) risklerine göre anlık bir **Benchmark Skoru** üretilir.
 
-📊 2. Toplam Sistem Puanlaması
-Donanımların teknik özellikleri (VRAM, Frekans, Çekirdek Sayısı vb.) baz alınarak sisteme 0 ile 100 arasında bir performans puanı verilir.
+### 🧠 4. Akıllı Darboğaz (Bottleneck) Algoritması (v2.0'dan Geliştirildi)
+Sistem, seçilen Ekran Kartı ve İşlemci arasındaki güç farkını yüzdesel olarak hesaplar.
+* Kullanıcıya % kaç oranında darboğaz olduğunu söyler.
+* Sistemi frenleyen parçayı (CPU veya GPU) tespit eder ve buna uygun yükseltme (upgrade) tavsiyesinde bulunur.
 
-💾 3. Genişletilmiş Veri Tabanı (HashMap)
-Ekran Kartları: RTX 20 serisinden RTX 5090'a kadar geniş bir yelpaze.
+### 🛡️ 5. Gelişmiş Kullanıcı Deneyimi (UX) & Input Validation
+Hatalı girişleri engelleyen döngüler sayesinde kullanıcı yanlış model girse bile program çökmez, doğruyu girene kadar rehberlik eder.
 
-İşlemciler: Intel Core i3 12. nesilden i9 14. nesile kadar detaylı işlemci verileri.
+---
 
-Oyunlar: Cyberpunk 2077, God of War gibi popüler oyunların detaylı sistem gereksinimleri.
+## 🛠️ Kullanılan Teknolojiler ve Yapılar
+* **Dil:** Java (JDK 21)
+* **Veri Yapıları:**
+    * `HashMap`: Donanım ve oyun verilerine O(1) hızında erişim için.
+    * `ArrayList`: Dinamik listeleme işlemleri için.
+* **Algoritmalar:** Ağırlıklı Ortalama (Weighted Average), Darboğaz Hesaplama Mantığı.
+* **OOP Prensipleri:** Polymorphism (Çok biçimlilik), Inheritance (Kalıtım), Encapsulation.
 
-🛡️ 4. Gelişmiş Kullanıcı Deneyimi (UX)
-Hatalı girişleri engelleyen Input Validation (Giriş Doğrulama) döngüleri eklendi. Kullanıcı yanlış model girse bile program çökmez, doğruyu girene kadar yol gösterir.
+---
 
-🛠️ Kullanılan Teknolojiler ve Yapılar
-Dil: Java (JDK 21)
+## 🔜 Gelecek Sürüm Hedefleri (Roadmap v4.0)
+v3.0 ile AMD entegrasyonu ve Dinamik Test hedeflerine ulaştık. Bir sonraki büyük güncelleme için hedeflerimiz:
 
-Veri Yapıları: HashMap (Hızlı veri erişimi için), ArrayList
+* ☁️ **Canlı Fiyat Çekme:** API kullanarak güncel donanım fiyatlarını internetten çekip "Fiyat/Performans" puanı hesaplanması.
+---
 
-OOP Prensipleri: Sınıflar (Classes), Nesneler (Objects), Constructorlar.
+### 👨‍💻 Geliştirici Notu
+Bu proje, Java'da Nesne Yönelimli Programlama (OOP) ve veri yapıları yetkinliklerini geliştirmek amacıyla açık kaynak olarak kodlanmıştır.
 
-Kontrol Yapıları: While Döngüleri, If-Else Blokları.
-
-🔜 Gelecek Sürüm Hedefleri (Roadmap v3.0)
-Şu anki sürümde oyunların sistem gereksinimleri kütüphane olarak sunulmaktadır. Gelecek güncellemede (v3.0) planlanan özellikler:
-
-🚀 FPS Tahmin Motoru: Mevcut donanımınızın (GPU + CPU), seçilen oyunda ortalama kaç FPS vereceğinin hesaplanması.
-
-🎮 Dinamik Uyumluluk Testi: Sisteminizin seçilen oyunu "Low", "Medium" veya "Ultra" ayarlarda açıp açamayacağının otomatik analizi.
-
-💾 Veri Tabanı Genişletmesi: AMD İşlemciler ve Radeon Ekran Kartlarının eklenmesi.
